@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{~/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{~/css/style.default.css}" />
+</head>
+<body marginwidth="0" marginheight="0">
+<div class="container">
+    <div class="row">
+        <h1> Error page</h1>
+    </div>
+    <h2>It appears Either something went wrong or the page
+        doesn't exist anymore.....</h2>
+    <div class="row rowDesign">
+        <div class="col-md-4 ml-auto">
+            <span class="legend">Date</span>
+        </div>
+        <div class="col-md-8">
+            <span th:text="${timestamp}"></span>
+        </div>
+    </div>
+    <div class="row rowDesign">
+        <div class="col-md-4 ml-auto">
+            <span class="legend">Error</span>
+        </div>
+        <div class="col-md-8">
+            <span th:text="${error}"></span>
+        </div>
+    </div>
+    <h3>
+        <span th:text="${msg}"></span>
+    </h3>
+    </div>
+</div>
+</body>
+</html>

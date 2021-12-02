@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Assign Car</title>
+</head>
+<body>
+<div align="center">
+    <h1>Assign Car</h1>
+    <br />
+    <form action="#" th:action="@{|/assign/save/${customerId}|}" th:object="${car}"
+          method="post">
+<!--        <input type="hidden" th:value="${customerId}">-->
+        <select class="form-control" id="carId" name="carId">
+            <option value="">Assign Car</option>
+            <option th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}"></option>
+        </select>
+
+        <table border="0" cellpadding="10">
+
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+
+        </table>
+
+    </form>
+</div>
+</body>
+</html>
