@@ -1,7 +1,6 @@
 package MVC.project.Customer.Website.controller;
 
 import MVC.project.Customer.Website.models.Car;
-import MVC.project.Customer.Website.models.Customer;
 import MVC.project.Customer.Website.services.CarService;
 import MVC.project.Customer.Website.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ public class CarController {
 
     @Autowired
     CustomerService customerService;
+
 
     @GetMapping("/car")
     public String viewHomePage(Model model){
@@ -83,6 +83,10 @@ public class CarController {
                             + " doesn't match id to be updated: " + id + ".");
             return "error";
         }
+        car2.setModel(car.getModel());
+        car2.setName(car.getName());
+        car2.setRegNumber(car.getRegNumber());
+        car2.setYear(car.getYear());
 
         carService.saveCar(car2);
         return "redirect:/car";

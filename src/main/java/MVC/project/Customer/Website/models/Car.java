@@ -2,8 +2,6 @@ package MVC.project.Customer.Website.models;
 
 
 import lombok.*;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-
 import javax.persistence.*;
 
 @Entity

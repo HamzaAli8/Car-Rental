@@ -25,10 +25,17 @@ public class CustomerController {
     @GetMapping("/")
     public String viewHomePage(Model model){
 
-        final List<Customer> customerList = customerService.getAllCustomers();
-        model.addAttribute("customerList", customerList);
         return "index";
     }
+
+    @GetMapping("/customer-list")
+    public String viewCustomerList ( Model model){
+
+        final List<Customer> customerList = customerService.getAllCustomers();
+        model.addAttribute("customerList", customerList);
+        return "customer-list";
+    }
+
     @GetMapping("/new")
     public String showNewCustomerPage(Model model){
 

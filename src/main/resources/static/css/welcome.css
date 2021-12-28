@@ -1,0 +1,81 @@
+:root {
+  --theme-primary: #07c;
+  --theme-accent: #febb02;
+  --theme-gray-normal: #707070;
+  --theme-gray-light: #e0e0e0;
+  --theme-white: #ffffff;
+}
+
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.car-rental-card {
+  width: 360px;
+  border-radius: 4px;
+  border: 1px solid var(--theme-gray-light);
+  overflow: hidden;
+}
+
+.car-rental-card .image-container img {
+  width: 100%;
+}
+
+.car-rental-card .image-container:hover {
+  cursor: pointer;
+}
+
+.car-rental-card .info-container {
+  padding: 1rem 1rem 1.2rem;
+}
+
+.info-container .header {
+  text-decoration: none;
+  color: var(--theme-black);
+}
+
+.info-container .title {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.info-container .subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--theme-gray-normal);
+}
+
+.car-rental-card .extras {
+  display: flex;
+  align-items: center;
+  margin-top: 0.7rem;
+}
+
+.extras .icon {
+  margin-top: 0.4rem;
+}
+
+.extras .icon .icon-car {
+  fill: var(--theme-gray-normal);
+}
+
+.extras .type {
+  font-size: 0.75rem;
+  margin-left: 0.6rem;
+}
+
+.extras .muted {
+  color: var(--theme-gray-normal);
+}
+
+.car-rental-card .link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: var(--theme-primary);
+  text-decoration: none;
+}
+
+.car-rental-card .link:hover {
+  color: var(--theme-accent);
+}

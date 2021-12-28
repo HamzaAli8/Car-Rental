@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Create New Customer</title>
+  <link rel="stylesheet" type="text/css" media="all"
+        href="../static/css/register.css" th:href="@{/css/register.css}"/>
+</head>
+<body>
+<div align="center">
+  <h1>Create New User</h1>
+  <br />
+  <!--
+  Here is the form that will be used to save the new customer.
+  The form is tied to the Customer object you added to the model,
+  and on submit it will hit the /save endpoint using the POST method.
+  -->
+  <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+    <table align="center" cellpadding = "10">
+      <tr>
+        <td>USERNAME</td>
+        <td><input name="username" minlength="6" th:field="*{username}"/>
+          (minimum 6 characters)
+        </td>
+      </tr>
+      <tr>
+        <td>PASSWORD</td>
+        <td><input name="password" minlength="6" th:field="*{password}"/>
+          (minimum 6 characters)
+        </td>
+      </tr>
+      <tr>
+        <td>CONFIRM PASSWORD</td>
+        <td><input name="confirmPassword" minlength="6" th:field="*{confirmPassword}"/>
+          (minimum 6 characters)
+        </td>
+      </tr>
+      <tr>
+        <td>FIRST NAME</td>
+        <td><input type="text" name="First_Name" maxlength="30" th:field="*{customer.firstName}"/>
+          (max 30 characters a-z and A-Z)
+        </td>
+      </tr>
+      <tr>
+        <td>LAST NAME</td>
+        <td><input type="text" name="Last_Name" maxlength="30" th:field="*{customer.lastName}"/>
+          (max 30 characters a-z and A-Z)
+        </td>
+      </tr>
+      <tr>
+        <td>AGE</td>
+        <td><input  type="number" name="Age" maxlength="3" th:field="*{customer.age}"> </td>
+      </tr>
+      <tr>
+        <td>EMAIL ID</td>
+        <td><input type="text" name="Email_Id" maxlength="100" th:field="*{customer.emailAddress}" /></td>
+      </tr>
+      <tr>
+        <td>ADDRESS <br /><br /><br /></td>
+        <td><textarea name="Address" rows="4" cols="30" th:field="*{customer.address}"></textarea></td>
+      </tr>
+      <tr>
+        <td>CITY</td>
+        <td><input type="text" name="City" maxlength="30" th:field="*{customer.city}" />
+          (max 30 characters a-z and A-Z)
+        </td>
+      </tr>
+      <tr>
+        <td>POST CODE</td>
+        <td><input type="number" name="Post_Code" maxlength="6" th:field="*{customer.postCode}" />
+          (6 digit number)
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

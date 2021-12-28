@@ -14,14 +14,30 @@ import javax.persistence.*;
 @Setter
 public class Customer {
 
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
-    private String fullName;
+
+    @Column(nullable = false)
+    private String firstName;
+
+    @Column(nullable = false)
+    private String lastName;
+
+    @Column(nullable = false, unique = true)
     private String emailAddress;
+
+    @Column(nullable = false)
     private Integer age;
+
+    @Column(nullable = false)
     private String address;
 
+    @Column(nullable = false)
+    private String city;
+
+    @Column(nullable = false)
+    private Long postCode;
 
     @OneToOne(mappedBy = "customer")
     private Car car;
