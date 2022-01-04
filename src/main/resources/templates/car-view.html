@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Create New Customer</title>
+  <link rel="stylesheet" type="text/css" media="all"
+        href="../static/css/car-view.css" th:href="@{/css/car-view.css}"/>
+</head>
+<body>
+<div class="productlist">
+  <div class="product">
+    <h2><a href="car/car_id/0">Honda Accord</a></h2>
+    <div class="image"><img alt="Ocean Blue Shirt image"
+                            th:src="@{/images/cars/Honda Accord 2021.jpeg}"></div>
+    <div class="cost">$32/day</div>
+    <div class="cart">
+      <form th:action="@{|/assign/save/${userId}|}"  method='POST' th:object="${car}">
+        <input th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}">
+        <input name="item" type="hidden" value="0">
+        <input type="submit" value="Book Now">
+      </form>
+    </div>
+  </div>
+  <div class="product">
+    <h2><a href="car/car_id/1">Toyota Corolla</a></h2>
+    <div class="image"><img alt="Classic Varsity Top image"
+                            th:src="@{/images/cars/Toyota Corolla.jpeg}"></div>
+    <div class="cost">$20/day</div>
+    <div class="cart">
+      <form th:action="@{|/assign/save/${userId}|}" method='POST' th:object="${car}">
+        <input th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}">
+        <input name="item" type="hidden" value="1">
+        <input type="submit" value="Book Now">
+      </form>
+    </div>
+  </div>
+  <div class="product">
+    <h2><a href="car/car_id/2">Tesla Model S</a></h2>
+    <div class="image"><img
+            alt="Yellow Wool Jumper image"
+            th:src="@{/images/cars/Tesla Model S.jpeg}"></div>
+    <div class="cost">$45/day</div>
+    <div class="cart">
+      <form th:action="@{|/assign/save/${userId}|}" method='POST' th:object="${car}">
+        <input th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}">
+        <input name="item" type="hidden" value="2">
+        <input type="submit" value="Book Now">
+      </form>
+    </div>
+  </div>
+  <div class="product">
+    <h2><a href="car/car_id/3">Ford Fusion</a></h2>
+    <div class="image"><img alt="Floral White Top image"
+                            th:src="@{/images/cars/Ford Fusion.jpeg}"></div>
+    <div class="cost">$18/day</div>
+    <div class="cart">
+      <form th:action="@{|/assign/save/${userId}|}" method='POST' th:object="${car}">
+        <input th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}">
+        <input name="item" type="hidden" value="3">
+        <input type="submit" value="Book Now">
+      </form>
+    </div>
+  </div>
+  <div class="product">
+    <h2><a href="car/car_id/4">Hyundai Sonata</a></h2>
+    <div class="image"><img alt="Striped Silk Blouse image"
+                            th:src="@{/images/cars/Hyundai Sonata.jpeg}"></div>
+    <div class="cost">$21/day</div>
+    <div class="cart">
+      <form th:action="@{|/assign/save/${userId}|}" method='POST' th:object="${car}">
+        <input th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}">
+        <input name="item" type="hidden" value="4">
+        <input type="submit" value="Book Now">
+      </form>
+    </div>
+  </div>
+  <div class="product">
+    <h2><a href="car/car_id/5">Mazda 6</a></h2>
+    <div class="image"><img alt="Classic Leather Jacket image"
+                            th:src="@{/images/cars/mazda 6.jpeg}"></div>
+    <div class="cost">$23/day</div>
+    <div class="cart">
+      <form th:action="@{|/assign/save/${userId}|}" method='POST' th:object="${car}">
+        <input th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}">
+        <input name="item" type="hidden" value="5">
+        <input type="submit" value="Book Now">
+      </form>
+    </div>
+  </div>
+  <div class="product">
+    <h2><a href="car/car_id/6">Nissan Altima</a></h2>
+    <div class="image"><img alt="Dark Denim Top image"
+                            th:src="@{/images/cars/Nissan Altima .jpeg}"></div>
+    <div class="cost">$26/day</div>
+    <div class="cart">
+      <form th:action="@{|/assign/save/${userId}|}" method='POST' th:object="${car}">
+        <input th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}">
+        <input name="item" type="hidden" value="6">
+        <input type="submit" value="Book Now">
+      </form>
+    </div>
+  </div>
+  <div class="product">
+    <h2><a href="car/car_id/7">Honda Civic</a></h2>
+    <div class="image"><img alt="Navy Sports Jacket image"
+                            th:src="@{/images/cars/Honda Civic.jpeg}"></div>
+    <div class="cost">$27/day</div>
+    <div class="cart">
+      <form th:action="@{|/assign/save/${userId}|}" method='POST' th:object="${car}">
+        <input th:each="car : ${cars}"
+                    th:value="${car.carId}"
+                    th:text="${car.name}+' : '+${car.model}+' : '+${car.regNumber}">
+        <input name="item" type="hidden" value="7">
+        <input type="submit" value="Book Now">
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

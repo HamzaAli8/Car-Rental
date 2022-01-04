@@ -1,24 +1,29 @@
 :root {
   --theme-primary: #07c;
-  --theme-accent: #febb02;
+  --theme-accent: #ff6699;
   --theme-gray-normal: #707070;
   --theme-gray-light: #e0e0e0;
   --theme-white: #ffffff;
+  --theme-blue: #ffffff;
+
 }
 
 body {
   font-family: -apple-system,system-ui,BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
 }
 
 .car-rental-card {
-  width: 360px;
+  width: 720px;
   border-radius: 4px;
   border: 1px solid var(--theme-gray-light);
   overflow: hidden;
+  background-color: #F8A434;
 }
 
 .car-rental-card .image-container img {
   width: 100%;
+  max-height:100%;
 }
 
 .car-rental-card .image-container:hover {
@@ -31,18 +36,20 @@ body {
 
 .info-container .header {
   text-decoration: none;
-  color: var(--theme-black);
+  color: var(--theme-white);
 }
 
 .info-container .title {
   margin: 0;
   font-size: 1.3rem;
+  font-family: 'Lato', sans-serif;
 }
 
 .info-container .subtitle {
   margin: 0;
   font-size: 0.9rem;
   color: var(--theme-gray-normal);
+  font-family: 'Lato', sans-serif;
 }
 
 .car-rental-card .extras {
@@ -62,6 +69,8 @@ body {
 .extras .type {
   font-size: 0.75rem;
   margin-left: 0.6rem;
+  color: #ffffff;
+  font-family: 'Lato', sans-serif;
 }
 
 .extras .muted {
@@ -78,4 +87,14 @@ body {
 
 .car-rental-card .link:hover {
   color: var(--theme-accent);
+
+}
+
+h3{
+  font-family: Calibri;
+  font-size: 25pt;
+  font-style: normal;
+  font-weight: bold;
+  color:#ffffff;
+  text-align: center;
 }

@@ -6,10 +6,6 @@
 </head>
 <body>
 <div align ="center">
-    <div sec:authorize="isAuthenticated()">
-        Logged user: <span sec:authentication="name">UserName</span>
-        Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
-    </div>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Logout"/>
     </form>
@@ -17,7 +13,7 @@
 <div align="center">
     <h1>Car List</h1>
     <br/><br/>
-    <a th:href="@{car/new}">Add New Car</a>
+    <a th:href="@{car/add}">Add New Car</a>
     <table border="1" cellpadding="10">
         <thead>
         <tr>
@@ -48,7 +44,7 @@
             <td th:text="${car.model}">Model</td>
             <td th:text="${car.year}">Year</td>
             <td th:text="${car.regNumber}">Registration Number</td>
-            <td th:text="${(car.customer != null) ? car.customer.fullName : ''}">Rented by</td>
+            <td th:text="${(car.user != null) ? car.user.userId : ''}">Rented by</td>
             <td>  <a th:href="@{'car/edit/' + ${car.carId}}">Edit</a>
                 <a th:href="@{'car/delete/' + ${car.carId}}">Delete</a>
             </td>

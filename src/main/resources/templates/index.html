@@ -1,5 +1,6 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml"
-xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="utf-8">
     <title>Sign Up For Your Rental</title>
@@ -10,19 +11,18 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="utf-8">
     <title>Sign Up For Beta Form</title>
-    <h3 sec:authorize="isAuthenticated()"> Welcome, <span sec:authentication="name"> Welcome Guest</span></h3>
 </head>
 <body>
 <form action="#" th:action="@{/register}"  method="get" th:object="${user}">
+    <input sec:authorize="isAuthenticated()" class="button" id="logout" value="Log Out" type="submit" href="#" th:formaction="@{/logout}" formmethod="post">
     <div class="header">
         <p>Sign UP FOR YOUR CAR RENTAL</p>
     </div>
     <div class="description">
-        <p> Your car is almost ready. If you're interested in testing it out, then sign up below to get exclusive access.</p>
-    </div>
+   </div>
     <div class="input">
-        <input th:formaction="@{/login}"type="submit" class="button" id="email" value="LOGIN" formmethod="post">
-        <input th:href="@{/register}"type="submit" class="button" id="submit" value="SIGN UP">
+        <input th:formaction="@{/login}"type="submit" class="button" id="login" value="LOGIN" formmethod="post">
+        <input th:href="@{/}"type="submit" class="button" id="signup" value="SIGN UP">
     </div>
 </form>
 </body>

@@ -40,7 +40,7 @@ form {
 }
 
 
-#email {
+#login {
     width: 25%;
     height: 46px;
     background: #6cb0e8;
@@ -53,8 +53,21 @@ form {
     transition: background .3s ease-in-out;
 }
 
+#logout {
+    width: 25%;
+    height: 46px;
+    background: #3CC716;
+    font-family: inherit;
+    font-weight: bold;
+    color: inherit;
+    letter-spacing: 1px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background .3s ease-in-out;
+}
 
-#submit {
+
+#signup {
   width: 25%;
   height: 46px;
   background: #E86C8D;
@@ -68,12 +81,17 @@ form {
 }
 
 
-#submit:hover {
+#signup:hover {
   background: #d45d7d;
 }
 
-#email:hover {
-  background: #d45d7d;
+#login:hover {
+  background: #0962B0;
+}
+
+
+#logout:hover {
+  background: #1A6605;
 }
 
 
