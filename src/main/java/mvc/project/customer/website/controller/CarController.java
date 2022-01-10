@@ -2,12 +2,15 @@ package mvc.project.customer.website.controller;
 
 import mvc.project.customer.website.models.Car;
 import mvc.project.customer.website.models.User;
+import mvc.project.customer.website.repositories.UserRepository;
 import mvc.project.customer.website.services.CarService;
+import mvc.project.customer.website.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -16,12 +19,20 @@ public class CarController {
     @Autowired
     CarService carService;
 
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    UserRepository userRepository;
+
 
     @GetMapping("/car")
-    public String viewHomePage(Model model){
+    public String viewHomePage(Model model, Principal principal){
 
         final List<Car> carList = carService.getAllCars();
         model.addAttribute("carList", carList);
+        User user = userService.loadUserByUsername(principal.getName());
+        model.addAttribute(user);
         return "car-index";
     }
 
@@ -32,6 +43,16 @@ public class CarController {
         model.addAttribute("car", car);
         return "new-car";
 
+    }
+
+    @GetMapping("/car/{id}")
+    public String getCar(@PathVariable(name = "id") Long id, Model model){
+
+        Car car = carService.getCar(id);
+
+        model.addAttribute("car", car);
+
+        return "car-info";
     }
 
     @PostMapping(value = "/car/save")
@@ -86,7 +107,15 @@ public class CarController {
     }
 
     @GetMapping("/car/view")
-    public String carView(Model model){
+    public String carView(Model model, Principal principal){
+
+        final List<Car> cars = carService.getAllCars();
+        model.addAttribute("cars", cars);
+
+        Long userId = userRepository.findByUsername(principal.getName()).getUserId();
+        User user = userService.loadUserByUsername(principal.getName());
+        model.addAttribute("userId", userId);
+        model.addAttribute("user", user);
 
         return "car-view";
     }

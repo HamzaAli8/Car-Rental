@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
     <title>Car Manager</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/car-index.css" th:href="@{/css/car-index.css}"/>
 </head>
+<header th:replace="header :: myHeader"></header>
 <body>
-<div align ="center">
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Logout"/>
-    </form>
-</div>
 <div align="center">
     <h1>Car List</h1>
     <br/><br/>

@@ -91,7 +91,7 @@ public class UserService implements UserDetailsService {
 
     public User getCustomer(Long id){
 
-        return userRepository.getById(id);
+        return userRepository.findById(id).get();
     }
 
 
@@ -111,8 +111,10 @@ public class UserService implements UserDetailsService {
         user2.getCustomer().setCity(user.getCustomer().getCity());
 
         return userRepository.save(user2);
+    }
 
+    public User findById(Long id){
 
-
+        return userRepository.findById(id).get();
     }
 }

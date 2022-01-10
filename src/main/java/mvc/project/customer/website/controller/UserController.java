@@ -4,9 +4,7 @@ package mvc.project.customer.website.controller;
 import mvc.project.customer.website.models.Car;
 import mvc.project.customer.website.models.Customer;
 import mvc.project.customer.website.models.User;
-import mvc.project.customer.website.repositories.UserRepository;
 import mvc.project.customer.website.services.CarService;
-import mvc.project.customer.website.services.CarServiceImpl;
 import mvc.project.customer.website.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -25,8 +23,6 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    @Autowired
-    UserRepository userRepository;
 
     @Autowired
     UserService userService;
@@ -64,16 +60,29 @@ public class UserController {
     @GetMapping(value ="/welcome")
     public String successfulLoginPage(Model model, Principal principal){
 
-
+        User user = userService.loadUserByUsername(principal.getName());
         model.addAttribute("principal",principal);
+        model.addAttribute(user);
 
         return "welcome";
     }
 
+    @GetMapping("/contact")
+    public String contactPage(Model model, Principal principal){
+
+        User user = userService.loadUserByUsername(principal.getName());
+        model.addAttribute("principal",principal);
+        model.addAttribute(user);
+
+        return "contact";
+    }
+
     @GetMapping("/user-list")
-    public String viewCustomerList ( Model model){
+    public String viewCustomerList ( Model model, Principal principal){
 
         final List<User> userList = userService.getAllUsers();
+        User user = userService.loadUserByUsername(principal.getName());
+        model.addAttribute(user);
         model.addAttribute("userList", userList);
         return "user-list";
     }
@@ -89,7 +98,7 @@ public class UserController {
             return "error";
         }
         userService.updateUser(user,id);
-        return "redirect:/";
+        return "redirect:/welcome";
     }
 
     @RequestMapping("/delete/{id}")
@@ -107,7 +116,7 @@ public class UserController {
             return "error";
         }
         userService.deleteUser(id);
-        return "redirect:/";
+        return "redirect:/welcome";
     }
 
 
@@ -154,16 +163,20 @@ public class UserController {
             return "error";
         }
 
-        return "redirect:/";
+        return "success";
     }
 
 
     @GetMapping("/edit/{id}")
     public String showEditCustomerPage(@PathVariable(name = "id")Long id, Model model){
 
+
         User user = userService.getCustomer(id);
 
+        Long userId = user.getUserId();
+
         model.addAttribute("user", user);
+        model.addAttribute("userId", userId);
         return "edit-customer";}
 
 
@@ -176,5 +189,12 @@ public class UserController {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login?logout";
+    }
+
+    @GetMapping("/success")
+    public String successPage(){
+
+
+        return "success";
     }
 }

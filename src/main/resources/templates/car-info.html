@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <title>Car Manager</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/car-info.css" th:href="@{/css/car-info.css}"/>
+</head>
+<table>
+    <thead>
+    <th>name</th>
+    <th>model</th>
+    <th>year</th>
+    <th>Registration No.</th>
+    </thead>
+    <tr th:object="${car}">
+        <td th:text="${car.name}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.year}"></td>
+        <td th:text="${car.regNumber}"></td>
+    </tr>
+</table>
+

@@ -21,6 +21,8 @@ public class Car {
     private String regNumber;
     private Integer year;
     private String city;
+    private Integer cost;
+    private Transmission transmission;
 
     @OneToOne(
             cascade = CascadeType.MERGE,
@@ -33,4 +35,11 @@ public class Car {
 
     )
     private User user;
+
+
+    public enum Transmission{
+
+        Manual,
+        Automatic
+    }
 }
