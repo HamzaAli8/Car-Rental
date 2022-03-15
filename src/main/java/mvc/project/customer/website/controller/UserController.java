@@ -38,6 +38,13 @@ public class UserController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String loginPage(){
+
+
+        return "login";
+    }
+
     @GetMapping(value = "/register")
     public String registerPage(Model model){
         User user = User.builder().customer(new Customer()).build();
@@ -159,7 +166,7 @@ public class UserController {
         } else {
 
             model.addAttribute("msg",
-                    "Car has already been assigned to another customer");
+                    "User has already been assigned a car");
             return "error";
         }
 
@@ -188,7 +195,7 @@ public class UserController {
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:/login?logout";
+        return "redirect:/login";
     }
 
     @GetMapping("/success")

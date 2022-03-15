@@ -1,36 +1,18 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" type="text/css" th:href="@{~/css/bootstrap.min.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{~/css/style.default.css}" />
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/error.css" th:href="@{/css/error.css}"/>
 </head>
-<body marginwidth="0" marginheight="0">
+<body>
 <div class="container">
-    <div class="row">
-        <h1> Error page</h1>
-    </div>
-    <h2>It appears Either something went wrong or the page
-        doesn't exist anymore.....</h2>
-    <div class="row rowDesign">
-        <div class="col-md-4 ml-auto">
-            <span class="legend">Date</span>
-        </div>
-        <div class="col-md-8">
-            <span th:text="${timestamp}"></span>
-        </div>
-    </div>
-    <div class="row rowDesign">
-        <div class="col-md-4 ml-auto">
-            <span class="legend">Error</span>
-        </div>
-        <div class="col-md-8">
-            <span th:text="${error}"></span>
-        </div>
-    </div>
-    <h3>
-        <span th:text="${msg}"></span>
-    </h3>
+
+    <div class="error">
+        <h3>Whoops!</h3>
+        <p th:text="${msg}">Something went wrong, sorry about that.</p>
+        <form action="" th:action>
+        <button type="submit" name="action" th:formaction="@{/car/view}">Let's try again</button>
+        </form>
     </div>
 </div>
 </body>

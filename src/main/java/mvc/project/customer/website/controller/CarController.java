@@ -68,7 +68,7 @@ public class CarController {
         Car car = carService.getCar(id);
         if (car == null) {
             model.addAttribute("msg",
-                    "Cannot find customer with id = " + id);
+                    "Cannot find car with id = " + id);
             return "error";
         }else if(car.getUser()!= null){
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sign Up For Your Rental</title>
+    <title>Customer List</title>
     <link rel="stylesheet" type="text/css" media="all"
           href="../static/css/user-list.css" th:href="@{/css/user-list.css}"/>
 </head>
@@ -14,7 +14,6 @@
 <div align="center">
     <h1>Customer List</h1>
     <br/><br/>
-    <a class="btn btn-primary" th:href="@{/add}">Add New Customer</a>
     <table class= "table" border="1" cellpadding="10">
         <thead>
         <tr>
@@ -37,15 +36,19 @@
          your column names.
         -->
         <tbody>
+
         <tr th:each="user : ${userList}">
             <td th:text="${user.userId}">User ID</td>
             <td th:text="${user.username}">UserName</td>
             <td th:text="${user.customer.emailAddress}">Email Address</td>
             <td th:text="${user.customer.age}">Age</td>
             <td>  <a th:href="@{'/edit/' + ${user.userId}}">Edit</a>
-                  <a th:href="@{'/delete/' + ${user.userId}}">Delete</a>
+                <form th:object="${user}" th:action="@{'/delete/' + ${user.userId}}" th:method="post">
+                  <button  type="submit" >Delete</button>
+                </form>
             </td>
         </tr>
+
         </tbody>
     </table>
 </div>

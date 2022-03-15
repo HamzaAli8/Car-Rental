@@ -32,7 +32,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/customer-view").authenticated()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/welcome",true);
+                .logout().logoutSuccessUrl("/").permitAll()
+                .and()
+                .formLogin()
+                .defaultSuccessUrl("/welcome",true)
+                .permitAll();
+
     }
 
     @Autowired

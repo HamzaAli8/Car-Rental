@@ -1,7 +1,5 @@
 package mvc.project.customer.website.services;
 
-import mvc.project.customer.website.models.Customer;
-import mvc.project.customer.website.models.Role;
 import mvc.project.customer.website.models.User;
 import mvc.project.customer.website.repositories.RoleRepository;
 import mvc.project.customer.website.repositories.UserRepository;
@@ -109,6 +107,7 @@ public class UserService implements UserDetailsService {
         user2.getCustomer().setLastName(user.getCustomer().getLastName());
         user2.getCustomer().setEmailAddress(user.getCustomer().getEmailAddress());
         user2.getCustomer().setCity(user.getCustomer().getCity());
+        user2.getCustomer().setAddress(user.getCustomer().getAddress());
 
         return userRepository.save(user2);
     }

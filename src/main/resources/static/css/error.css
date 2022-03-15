@@ -1,0 +1,98 @@
+// colors
+
+$green: #57e38f;
+
+
+// resets
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+	margin: 0;
+  padding: 0;
+  list-style: none;
+	outline: none;
+  border: none;
+  appearance: none;
+  background-color: transparent;
+}
+
+//defaults
+body {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.1em;
+  background-color: #f3f3f3;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.container {
+  width: 800px;
+  margin: auto;
+  padding: 300px 100px;
+  text-align: center;
+}
+
+
+.error {
+  width: 400px;
+  height: 200px;
+  margin: 0 20px;
+  padding: 40px;
+  display: inline-block;
+  vertical-align: top;
+
+  box-shadow: 0 0 10px 1px #c8c8c8;
+  border-radius: 20px;
+  color: #fbfbfb;
+
+  h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+}
+
+h3 {
+
+      color:#801919;
+    }
+
+.error {
+  background-color: #f55e5e;
+
+}
+
+
+button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px 10px;
+  cursor: pointer;
+
+  border: 4px solid #fbfbfb;
+  border-radius: 80px;
+
+  color: #fbfbfb;
+  font-size: .9em;
+  font-weight: bold;
+  line-height: 1em;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.error button:hover,
+{
+  background-color: #fbfbfb;
+}
+
+.error button:hover  {
+  color: #4295f5;
+}
+

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sign Up For Your Rental</title>
+    <title> Sign Up For Your Rental</title>
     <link rel="stylesheet" type="text/css" media="all"
     href="../static/css/index.css" th:href="@{/css/index.css}"/>
 </head>
@@ -16,12 +16,12 @@
 <form action="#" th:action="@{/register}"  method="get" th:object="${user}">
     <input sec:authorize="isAuthenticated()" class="button" id="logout" value="Log Out" type="submit" href="#" th:formaction="@{/logout}" formmethod="post">
     <div class="header">
-        <p>Sign UP FOR YOUR CAR RENTAL</p>
+        <p>Sign UP FOR YOUR Car Rental </p>
     </div>
     <div class="description">
    </div>
     <div class="input">
-        <input th:formaction="@{/login}"type="submit" class="button" id="login" value="LOGIN" formmethod="post">
+        <input th:formaction="@{/login}"type="submit" class="button" id="login" value="LOGIN"  formmethod="get">
         <input th:href="@{/}"type="submit" class="button" id="signup" value="SIGN UP">
     </div>
 </form>

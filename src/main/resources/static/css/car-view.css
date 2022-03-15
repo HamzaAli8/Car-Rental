@@ -102,11 +102,10 @@ a{
   align-self: center;
 }
 img{
-  max-width: 100%;
-  height: auto;
-  border-radius: 3px 3px 0 0;
-  box-sizing:border-box;
-  box-shadow: 0 2px 5px 1px rgba(0,0,0,0.4);
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   padding: 5px;
+   width: 300px;
 }
 form{
   margin: auto;
