@@ -36,6 +36,17 @@ public class CarController {
         return "car-index";
     }
 
+    @GetMapping("/car2")
+    public String viewHomePage2(Model model, Principal principal){
+
+        final List<Car> carList = carService.getAllCars();
+        model.addAttribute("carList", carList);
+        User user = userService.loadUserByUsername(principal.getName());
+        model.addAttribute(user);
+        return "car-info2";
+    }
+
+
     @GetMapping("/car/add")
     public String showNewCarPage(Model model) {
 

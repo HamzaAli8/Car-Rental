@@ -47,6 +47,7 @@ public class UserService implements UserDetailsService {
         Optional<User> user = userRepository.findById(userId);
 
         return (User) Hibernate.unproxy(user);
+
     }
 
     public User createNewUser (User user){

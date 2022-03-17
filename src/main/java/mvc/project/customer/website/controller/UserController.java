@@ -187,6 +187,18 @@ public class UserController {
         return "edit-customer";}
 
 
+    @GetMapping("/user2")
+    public String newUserPage(Model model, Principal principal){
+
+        final List<User> userList = userService.getAllUsers();
+        User user = userService.loadUserByUsername(principal.getName());
+        model.addAttribute(user);
+        model.addAttribute("userList", userList);
+
+        return "user-list2";
+    }
+
+
 
 
     @GetMapping

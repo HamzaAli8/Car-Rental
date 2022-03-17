@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/user-list2.css" th:href="@{/css/user-list2.css}"/>
+    <link
+            href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+            rel="stylesheet"  type='text/css'>
+</head>
+
+<body>
+<h1>Customer List </h1>
+<br>
+<br>
+<br>
+<table cellspacing="0" cellpadding="0" class="user-table">
+    <tr id="user-table-top">
+        <th>
+            <h3>User ID</h3>
+        </th>
+        <th>
+            <h3>Email</h3>
+        </th>
+        <th>
+            <h3>Username</h3>
+        </th>
+        <th>
+            <h3>Age</h3>
+        </th>
+        <th>
+            <h3>Edit user</h3>
+        </th>
+        <th>
+            <h3>Delete</h3>
+        </th>
+    </tr>
+    <tr th:each="user : ${userList}">
+        <th>
+            <h5 th:text="${user.userId}"></h5>
+        </th>
+        <th>
+            <h5 th:text="${user.customer.emailAddress}" ></h5>
+        </th>
+        <th>
+            <h5 th:text="${user.username}"></h5>
+        </th>
+        <th>
+            <h5 th:text="${user.customer.age}" ></h5>
+        </th>
+        <th><a th:href="@{'/edit/' + ${user.userId}}"> <i class="fa fa-edit"></i></a></th>
+        <th><a th:href="@{'/delete/' + ${user.userId}}"> <i class="fa fa-user-times"></i></a>
+        </th>
+    </tr>
+</table>
+</body>
+</html>

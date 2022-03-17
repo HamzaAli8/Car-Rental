@@ -27,6 +27,7 @@
         <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/user-list}">Customers</a>
 <!--        <a th:href="@{|/edit/${userId}|}">My Account</a>-->
         <a th:href="@{/edit/{id}(id=${user.userId})}">My Account</a>
+        <a th:href="@{/car/view}">Search</a>
         <a th:href="@{/contact}">Contact</a>
         <a th:href="@{/logout}" >Sign Out</a>
     </div>
