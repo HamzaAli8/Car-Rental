@@ -1,55 +1,60 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Customer List</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
     <link rel="stylesheet" type="text/css" media="all"
           href="../static/css/user-list.css" th:href="@{/css/user-list.css}"/>
+    <link
+            href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+            rel="stylesheet"  type='text/css'>
 </head>
-<html>
-<body>
 <header th:replace="header :: myHeader"></header>
-<html>
-<div align="center">
-    <h1>Customer List</h1>
-    <br/><br/>
-    <table class= "table" border="1" cellpadding="10">
-        <thead>
-        <tr>
-            <!--
-            You are creating a table here, where the header will be the Customer
-            details and then the other rows will be filled by the data that
-            you send back in the Model object.
-            -->
-            <th scope="col"> Customer ID</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email Address</th>
-            <th scope="col">Age</th>
-            <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <!--
-         Now that your headers are defined, you can reference the key-value
-         pair "customerList" that you added to the model above.
-         Thymeleaf will loop over each customer and extract the attributes to match
-         your column names.
-        -->
-        <tbody>
-
-        <tr th:each="user : ${userList}">
-            <td th:text="${user.userId}">User ID</td>
-            <td th:text="${user.username}">UserName</td>
-            <td th:text="${user.customer.emailAddress}">Email Address</td>
-            <td th:text="${user.customer.age}">Age</td>
-            <td>  <a th:href="@{'/edit/' + ${user.userId}}">Edit</a>
-                <form th:object="${user}" th:action="@{'/delete/' + ${user.userId}}" th:method="post">
-                  <button  type="submit" >Delete</button>
-                </form>
-            </td>
-        </tr>
-
-        </tbody>
-    </table>
-</div>
+<body>
+<h1>Customer List </h1>
+<br>
+<br>
+<br>
+<table cellspacing="0" cellpadding="0" class="user-table">
+    <tr id="user-table-top">
+        <th>
+            <h3>User ID</h3>
+        </th>
+        <th>
+            <h3>Email</h3>
+        </th>
+        <th>
+            <h3>Username</h3>
+        </th>
+        <th>
+            <h3>Age</h3>
+        </th>
+        <th>
+            <h3>Edit user</h3>
+        </th>
+        <th>
+            <h3>Delete</h3>
+        </th>
+    </tr>
+    <tr th:each="user : ${userList}">
+        <th>
+            <h5 th:text="${user.userId}"></h5>
+        </th>
+        <th>
+            <h5 th:text="${user.customer.emailAddress}" ></h5>
+        </th>
+        <th>
+            <h5 th:text="${user.username}"></h5>
+        </th>
+        <th>
+            <h5 th:text="${user.customer.age}" ></h5>
+        </th>
+        <th><a th:href="@{'/edit/' + ${user.userId}}"> <i class="fa fa-edit"></i></a></th>
+        <th><a th:href="@{'/delete/' + ${user.userId}}"> <i class="fa fa-user-times"></i></a>
+        </th>
+    </tr>
+</table>
+</body>
 </html>

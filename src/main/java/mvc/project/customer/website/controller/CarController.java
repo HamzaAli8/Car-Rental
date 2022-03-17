@@ -43,7 +43,7 @@ public class CarController {
         model.addAttribute("carList", carList);
         User user = userService.loadUserByUsername(principal.getName());
         model.addAttribute(user);
-        return "car-info2";
+        return "car-index2";
     }
 
 
