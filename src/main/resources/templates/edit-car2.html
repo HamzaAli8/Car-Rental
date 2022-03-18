@@ -1,0 +1,67 @@
+<html lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> <meta name="description" content="Table for entering car data and calculating speed">
+  <link rel="stylesheet" type="text/css" media="all"
+        href="../static/css/edit-car2.css" th:href="@{/css/edit-car2.css}"/>
+  <meta name="author" content="Dovile Obolinyte">
+  <title>Car speed tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <h1>Car speed tracker</h1>
+  </header>
+  <main>
+    <div class="container-fluid px-5 px-md-3 px-sm-1 d-flex justify-content-around justify-content-md-center justify content-sm-center" >
+      <div class="table-container mr-5 mr-md-3">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Car No.</th>
+            <th scope="col">Distance (m)</th>
+            <th scope="col">Time (s)</th>
+            <th scope="col">Speed (km/h)</th>
+          </tr>
+          </thead>
+          <tbody id="tbody">
+          <tr>
+            <td id="date"></td>
+            <td id="car-number"></td>
+            <td id="distance"></td>
+            <td id="time"></td>
+            <td id="speed"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="form-container">
+        <form id="car-details-form">
+          <div class="form-group">
+
+            <input id="input-date" type="text" class="form-control" placeholder="1000-01-01 10:10" maxlength="20">
+          </div>
+          <div class="form-group">
+            <input id="input-car-number" type="text" class="form-control" placeholder="AAA000" maxlength="10">
+          </div>
+          <div class="form-group">
+            <input id="input-distance" type="number" class="form-control" placeholder="Metres" maxlength="10">
+          </div>
+          <div class="form-group">
+            <input id="input-time" type="number" class="form-control" placeholder="Seconds" maxlength="10">
+          </div>
+          <div class="button-container">
+            <button type="submit" class="btn mt-3">Add & Calculate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

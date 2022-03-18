@@ -17,8 +17,8 @@
     values populate the fields here. Any changes to the fields then POST to the update endpoint.
     -->
     <form action="#" th:action="@{'/update/' + ${user.userId}}" th:object="${user}"
-          method="post">
-        <table border="0" cellpadding="10">
+          method="post" >
+        <table class="user-table">
             <tr>
                 <td>User ID:</td>
                 <td><input type="text" th:field="*{userId}" readonly/></td>
@@ -51,10 +51,10 @@
                 <td>City:</td>
                 <td><textarea type="text" th:field="*{customer.city}" required></textarea></td>
             </tr>
-            <tr>
-                <td>Current Rental:</td>
-                <td th:text="*{car?.name}+' : '+ *{car?.model}+' : '+ *{car?.year}+' : '+ *{car?.regNumber}" > No Car  </td>
-            </tr>
+<!--            <tr>-->
+<!--                <td>Current Rental:</td>-->
+<!--                <td><textarea type="text" th:field="*{car?.name}+' : '+ *{car?.model}+' : '+ *{car?.year}+' : '+ *{car?.regNumber}"></textarea> No Car  </td>-->
+<!--            </tr>-->
             <tr>
                 <td colspan="2"><button type="submit">Save</button></td>
             </tr>
