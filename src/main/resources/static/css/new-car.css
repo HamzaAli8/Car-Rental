@@ -91,5 +91,13 @@ label {
     text-transform: uppercase;
     margin-left: 200px
 }
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
 
 

@@ -36,9 +36,9 @@
                     <div class="form-group">
                         <p>Cost</p><input type="number" class="form-control" th:field="*{cost}" maxlength="10">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" >
                         <p>Transmission</p>
-                        <select>
+                        <select class="custom-select">
                             <option th:each="transmission : ${T(mvc.project.customer.website.models.Car.Transmission).values()}"
                                     th:value="${transmission}"
                                     th:text="${transmission}">
