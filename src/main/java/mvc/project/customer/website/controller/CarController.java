@@ -38,11 +38,23 @@ public class CarController {
 
 
 
-    @GetMapping("/car2")
-    public String viewHomePage2(Model model, Principal principal){
+//    @GetMapping("/car2/{id}")
+//    public String showEditCarPage(@PathVariable(name = "id")Long id, Model model){
+//
+//        Car car = carService.getCar(id);
+//
+//        model.addAttribute("car", car);
+//        return "edit-car2";
+//    }
 
 
-        return "edit-car2";
+    @GetMapping("/car2/{id}")
+    public String showEditCar(@PathVariable(name = "id")Long id, Model model){
+
+        Car car = carService.getCar(id);
+
+        model.addAttribute("car", car);
+        return "edit-car";
     }
 
 

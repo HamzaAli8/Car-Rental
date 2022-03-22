@@ -1,7 +1,17 @@
-body {
-    background-color: #f7f7f7;
-    margin: 0;
-    font-family: 'Titillium Web', sans-serif;
+
+body, html {
+  height: 100%;
+  font-family: sans-serif;
+  background: #f0f2f1;
+  background: -webkit-linear-gradient(to right,  #F8A434, #f0f2f1);
+  background: linear-gradient(to right, #f0f2f1,  #F8A434);
+}
+
+p{
+
+  color: white;
+  font-weight: 600;
+
 }
 
 table {
@@ -17,25 +27,27 @@ header {
 }
 
 h1 {
-    font-weight: normal;
+    font-weight: 600;
+    color: #ffffff;
 }
 
 table th {
     text-transform: uppercase;
     color: #ffffff;
-    background-color: #1ab188;
+    background-color: #ff9200;
     font-size: 16px;
     font-weight: normal;
 }
 
 table td {
     border-bottom: 1px solid white;
-    background-color: rgba(19, 35, 47, 0.9);
+    background-color: #F8A434;
     color: #ffffff;
+
 }
 
 form {
-    background: rgba(19, 35, 47, 0.9);
+    background:  #F8A434;
     padding: 30px 35px 30px 35px;
 }
 
@@ -43,6 +55,7 @@ label {
     color: #ffffff;
     text-align: left;
     text-transform: uppercase;
+    font-weight: 600
 }
 
 .form-control:focus {
@@ -51,6 +64,7 @@ label {
 }
 .button-container {
     text-align: center;
+
 }
 
 .btn {
@@ -58,3 +72,11 @@ label {
     color: white;
     text-transform: uppercase;
 }
+.cancel_btn {
+    background-color: #d60f0f;
+    color: white;
+    text-transform: uppercase;
+    margin-left: 15px
+}
+
+

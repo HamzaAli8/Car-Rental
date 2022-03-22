@@ -1,65 +1,77 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8">
-    <title>Edit Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> <meta name="description" content="Table for entering car data and calculating speed">
     <link rel="stylesheet" type="text/css" media="all"
-          href="../static/css/edit-customer.css" th:href="@{/css/edit-customer.css}"/>
+          href="../static/css/edit-car.css" th:href="@{/css/edit-car.css}"/>
+    <title>Edit Customer Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 </head>
 <body>
-<header th:replace="header :: myHeader"></header>
-<div align="center">
-    <h1>User Details</h1>
-    <br />
-    <!--
-    The form below uses a structure similar to the new-customer page.  But this time,
-    since the Customer object fields were populated before it was added to the model, their
-    values populate the fields here. Any changes to the fields then POST to the update endpoint.
-    -->
-    <form action="#" th:action="@{'/update/' + ${user.userId}}" th:object="${user}"
-          method="post" >
-        <table class="user-table">
-            <tr>
-                <td>User ID:</td>
-                <td><input type="text" th:field="*{userId}" readonly/></td>
-            </tr>
-            <tr>
-                <td>First Name:</td>
-                <td><input type="text" th:field="*{customer.firstName}" required/></td>
-            </tr>
-            <tr>
-                <td>Last Name:</td>
-                <td><input type="text" th:field="*{customer.lastName}" required/></td>
-            </tr>
-            <tr>
-                <td>Username:</td>
-                <td><input type="text" th:field="*{username}" required/></td>
-            </tr>
-            <tr>
-                <td>Email Address:</td>
-                <td><input type="email" th:field="*{customer.emailAddress}" required/></td>
-            </tr>
-            <tr>
-                <td>Age:</td>
-                <td><input type="number" th:field="*{customer.age}" required/></td>
-            </tr>
-            <tr>
-                <td>Address:</td>
-                <td><textarea type="text" th:field="*{customer.address}" required></textarea></td>
-            </tr>
-            <tr>
-                <td>City:</td>
-                <td><textarea type="text" th:field="*{customer.city}" required></textarea></td>
-            </tr>
-<!--            <tr>-->
-<!--                <td>Current Rental:</td>-->
-<!--                <td><textarea type="text" th:field="*{car?.name}+' : '+ *{car?.model}+' : '+ *{car?.year}+' : '+ *{car?.regNumber}"></textarea> No Car  </td>-->
-<!--            </tr>-->
-            <tr>
-                <td colspan="2"><button type="submit">Save</button></td>
-            </tr>
-        </table>
-    </form>
+<div class="wrapper">
+    <header>
+        <h1>Edit User Details</h1>
+    </header>
+    <main>
+        <div class="container-fluid px-5 px-md-3 px-sm-1 d-flex justify-content-around justify-content-md-center justify content-sm-center" >
+            <div class="table-container mr-5 mr-md-3">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" >User ID </th>
+                        <th scope="col" >Name </th>
+                        <th scope="col" >Age</th>
+                        <th scope="col" >Location</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr th:object="${user}">
+                        <td th:text="${userId}"></td>
+                        <td th:text="${user.customer.firstName}"></td>
+                        <td th:text="${user.customer.age}"></td>
+                        <td th:text="${user.customer.city}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-container">
+                <form action="#" th:action="@{'/update/' + ${user.userId}}" th:object="${user}"
+                      method="post" >
+                    <div class="form-group">
+                        <p>User Id</p><input type="number" class="form-control" th:field="*{userId}" maxlength="20">
+                    </div>
+                    <div class="form-group">
+                        <p>First Name</p><input  type="text" class="form-control" th:field="*{customer.firstName}" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <p>Last Name</p><input type="text" class="form-control" th:field="*{customer.lastName}" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <p>Username</p><input type="text" class="form-control" th:field="*{username}" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <p>Email Address</p><input type="text" class="form-control" th:field="*{customer.emailAddress}" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <p>Address</p><input type="text" class="form-control" th:field="*{customer.address}"maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <p>City</p><input type="text" class="form-control" th:field="*{customer.city}" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <p>Age</p><input type="number" class="form-control" th:field="*{customer.age}" maxlength="10">
+                    </div>
+                    <div class="button-container d-flex p-2">
+                        <button type="submit" class="btn mt-3 ">Save</button>
+                        <button type="submit" class="cancel_btn mt-3">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
 </div>
 </body>
 </html>

@@ -63,6 +63,9 @@ public class CarServiceImpl implements CarService{
         car2.setRegNumber(car.getRegNumber());
         car2.setYear(car.getYear());
         car2.setCity(car.getCity());
+        car2.setCost(car.getCost());
+        car2.setTransmission(car.getTransmission());
+        car2.setCarId(car.getCarId());
 
         return carRepository.save(car2);
     }
