@@ -16,14 +16,15 @@ import java.util.List;
 @Controller
 public class CarController {
 
-    @Autowired
-    CarService carService;
+    private final CarService carService;
+    private final UserService userService;
+    private final UserRepository userRepository;
 
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    UserRepository userRepository;
+    public CarController(CarService carService, UserService userService, UserRepository userRepository) {
+        this.carService = carService;
+        this.userService = userService;
+        this.userRepository = userRepository;
+    }
 
 
     @GetMapping("/car")
